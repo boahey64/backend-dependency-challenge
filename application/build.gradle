@@ -22,7 +22,7 @@ sourceCompatibility = 1.8
 repositories { mavenCentral() }
 
 dependencies {
-    compile project(':interfaces')
+    compile project(':sending-interfaces')
     compile project(':notifications')
     compile project(':services')
     compile('org.springframework.boot:spring-boot-starter-actuator')
