@@ -1,6 +1,6 @@
 rootProject.name = 'dependency-challenge'
-include 'services'
 include 'inquiry'
+include 'services'
 include 'notifications'
 include 'application'
 
