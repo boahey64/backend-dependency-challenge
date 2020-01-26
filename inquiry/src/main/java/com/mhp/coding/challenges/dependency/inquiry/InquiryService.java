@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
 @Component
 public class InquiryService {
     private EmailSender emailSender;
@@ -28,8 +26,7 @@ public class InquiryService {
     public void create(final Inquiry inquiry) {
         LOG.info("User sent inquiry: {}", inquiry);
 
-        Map<String, String> map = inquiryMapper.map(inquiry);
-        InquiryDto inquiryDto = inquiryMapper.mapToDto(inquiry);
+        InquiryDto inquiryDto = inquiryMapper.map(inquiry);
 
         emailSender.sendEmail(inquiryDto);
 

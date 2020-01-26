@@ -8,8 +8,6 @@ import com.mhp.coding.challenges.dependency.service.PushNotificationSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
 @Component
 public class PushNotificationService implements PushNotificationSender {
     private PushNotificationHandler pushNotificationHandler;
@@ -23,7 +21,7 @@ public class PushNotificationService implements PushNotificationSender {
 
     @Override
     public void sendNotification(InquiryDto inquiryDto) {
-        Inquiry inquiry = inquiryMapper.mapFroDto(inquiryDto);
+        Inquiry inquiry = inquiryMapper.map(inquiryDto);
 
         pushNotificationHandler.sendNotification(inquiry);
     }

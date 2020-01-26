@@ -10,27 +10,7 @@ import java.util.stream.Stream;
 @Component
 public class InquiryMapper {
 
-    public Map<String, String> map(Inquiry inquiry) {
-        Map<String, String> map = Stream.of(new String[][] {
-                { "username", inquiry.getUsername() },
-                { "recipient", inquiry.getRecipient() },
-                { "text", inquiry.getText() },
-        }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
-
-        return map;
-    }
-
-    public Inquiry map(Map<String, String> inquiryAsMap) {
-        Inquiry inquiry = new Inquiry();
-        inquiry.setUsername(inquiryAsMap.get("username"));
-        inquiry.setRecipient(inquiryAsMap.get("recipient"));
-        inquiry.setText(inquiryAsMap.get("text"));
-
-        return inquiry;
-    }
-
-
-    public InquiryDto mapToDto(Inquiry inquiry) {
+    public InquiryDto map(Inquiry inquiry) {
 
         return new InquiryDto(
                 inquiry.getUsername(),
@@ -38,7 +18,7 @@ public class InquiryMapper {
                 inquiry.getText());
     }
 
-    public Inquiry mapFroDto(InquiryDto inquiryDto) {
+    public Inquiry map(InquiryDto inquiryDto) {
         Inquiry inquiry = new Inquiry();
         inquiry.setUsername(inquiryDto.getUsername());
         inquiry.setRecipient(inquiryDto.getRecipient());

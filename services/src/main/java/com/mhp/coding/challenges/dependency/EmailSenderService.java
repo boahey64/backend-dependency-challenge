@@ -8,8 +8,6 @@ import com.mhp.coding.challenges.dependency.service.EmailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
 @Component
 public class EmailSenderService implements EmailSender {
     private EmailHandler emailHandler;
@@ -23,7 +21,7 @@ public class EmailSenderService implements EmailSender {
 
     @Override
     public void sendEmail(InquiryDto inquiryDto) {
-        Inquiry inquiry = inquiryMapper.mapFroDto(inquiryDto);
+        Inquiry inquiry = inquiryMapper.map(inquiryDto);
 
         emailHandler.sendEmail(inquiry);
 
