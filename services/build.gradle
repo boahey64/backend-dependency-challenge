@@ -9,7 +9,7 @@ ext { springBootVersion = '2.0.5.RELEASE' }
 apply plugin: 'java'
 
 jar {
-    baseName = 'inquiry'
+    baseName = 'services-library'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
@@ -17,6 +17,8 @@ sourceCompatibility = 1.8
 repositories { mavenCentral() }
 
 dependencies {
+    compile project(':interfaces')
+    compile project(':notifications')
     compile('org.springframework.boot:spring-boot-starter')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
