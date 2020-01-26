@@ -15,11 +15,13 @@ import java.util.stream.Stream;
 public class InquiryService {
     private EmailSender emailSender;
     private PushNotificationSender pushNotificationSender;
+    private InquiryMapper inquiryMapper;
 
     @Autowired
-    public InquiryService(EmailSender emailSender, PushNotificationSender pushNotificationSender) {
+    public InquiryService(EmailSender emailSender, PushNotificationSender pushNotificationSender, InquiryMapper inquiryMapper) {
         this.emailSender = emailSender;
         this.pushNotificationSender = pushNotificationSender;
+        this.inquiryMapper = inquiryMapper;
     }
 
     private static final Logger LOG = LoggerFactory.getLogger(InquiryService.class);
@@ -27,15 +29,11 @@ public class InquiryService {
     public void create(final Inquiry inquiry) {
         LOG.info("User sent inquiry: {}", inquiry);
 
-        Map<String, String> map = Stream.of(new String[][] {
-                { "username", inquiry.getUsername() },
-                { "recipient", inquiry.getRecipient() },
-                { "text", inquiry.getText() },
-        }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
+        Map<String, String> map = inquiryMapper.map(inquiry);
 
         emailSender.sendEmail(map);
 
-        pushNotificationSender.sendNotification(map);
+        pushNotificationSender.sendNotification(inquiryMapper.map(inquiry));
     }
 
 }
