@@ -4,10 +4,10 @@ import com.mhp.coding.challenges.dependency.notifications.EmailHandler;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmailService implements Email {
+public class EmailSenderService implements EmailSender {
     private EmailHandler emailHandler;
 
-    public EmailService(EmailHandler emailHandler) {
+    public EmailSenderService(EmailHandler emailHandler) {
         this.emailHandler = emailHandler;
     }
 

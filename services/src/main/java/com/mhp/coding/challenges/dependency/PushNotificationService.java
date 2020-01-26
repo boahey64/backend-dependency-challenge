@@ -4,7 +4,7 @@ import com.mhp.coding.challenges.dependency.notifications.PushNotificationHandle
 import org.springframework.stereotype.Component;
 
 @Component
-public class PushNotificationService implements PushNotification {
+public class PushNotificationService implements PushNotificationSender {
     private PushNotificationHandler pushNotificationHandler;
 
     public PushNotificationService(PushNotificationHandler pushNotificationHandler) {

@@ -1,6 +1,6 @@
 package com.mhp.coding.challenges.dependency;
 
-public interface Email {
+public interface EmailSender {
     public void sendEmail();
 
 }
