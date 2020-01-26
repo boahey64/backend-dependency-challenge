@@ -3,6 +3,7 @@ package com.mhp.coding.challenges.dependency;
 import com.mhp.coding.challenges.dependency.inquiry.Inquiry;
 import com.mhp.coding.challenges.dependency.inquiry.InquiryMapper;
 import com.mhp.coding.challenges.dependency.notifications.PushNotificationHandler;
+import com.mhp.coding.challenges.dependency.service.PushNotificationSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

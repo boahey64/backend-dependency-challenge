@@ -1,4 +1,4 @@
-package com.mhp.coding.challenges.dependency;
+package com.mhp.coding.challenges.dependency.service;
 
 import java.util.Map;
 
