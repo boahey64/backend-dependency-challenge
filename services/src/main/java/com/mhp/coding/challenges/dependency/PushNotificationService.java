@@ -4,6 +4,8 @@ import com.mhp.coding.challenges.dependency.notifications.PushNotificationHandle
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
 public class PushNotificationService implements PushNotificationSender {
     private PushNotificationHandler pushNotificationHandler;
@@ -14,7 +16,7 @@ public class PushNotificationService implements PushNotificationSender {
     }
 
     @Override
-    public void sendNotification() {
+    public void sendNotification(Map<String, String> inquiryAsMap) {
 
     }
 }

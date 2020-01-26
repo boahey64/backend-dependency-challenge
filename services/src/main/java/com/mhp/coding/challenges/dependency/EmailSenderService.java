@@ -4,6 +4,8 @@ import com.mhp.coding.challenges.dependency.notifications.EmailHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
 public class EmailSenderService implements EmailSender {
     private EmailHandler emailHandler;
@@ -14,7 +16,7 @@ public class EmailSenderService implements EmailSender {
     }
 
     @Override
-    public void sendEmail() {
+    public void sendEmail(Map<String, String> inquiryAsMap) {
 
     }
 }
