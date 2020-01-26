@@ -22,13 +22,6 @@ public class EmailSenderService implements EmailSender {
     }
 
     @Override
-    public void sendEmail(Map<String, String> inquiryAsMap) {
-        Inquiry inquiry = inquiryMapper.map(inquiryAsMap);
-
-        emailHandler.sendEmail(inquiry);
-    }
-
-    @Override
     public void sendEmail(InquiryDto inquiryDto) {
         Inquiry inquiry = inquiryMapper.mapFroDto(inquiryDto);
 

@@ -31,9 +31,9 @@ public class InquiryService {
         Map<String, String> map = inquiryMapper.map(inquiry);
         InquiryDto inquiryDto = inquiryMapper.mapToDto(inquiry);
 
-        emailSender.sendEmail(map);
+        emailSender.sendEmail(inquiryDto);
 
-        pushNotificationSender.sendNotification(inquiryMapper.map(inquiry));
+        pushNotificationSender.sendNotification(inquiryDto);
     }
 
 }

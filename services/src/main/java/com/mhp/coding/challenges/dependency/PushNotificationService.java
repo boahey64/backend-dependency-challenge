@@ -22,13 +22,6 @@ public class PushNotificationService implements PushNotificationSender {
     }
 
     @Override
-    public void sendNotification(Map<String, String> inquiryAsMap) {
-        Inquiry inquiry = inquiryMapper.map(inquiryAsMap);
-
-        pushNotificationHandler.sendNotification(inquiry);
-    }
-
-    @Override
     public void sendNotification(InquiryDto inquiryDto) {
         Inquiry inquiry = inquiryMapper.mapFroDto(inquiryDto);
 
