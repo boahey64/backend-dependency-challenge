@@ -1,5 +1,6 @@
 package com.mhp.coding.challenges.dependency;
 
+import com.mhp.coding.challenges.dependency.dto.InquiryDto;
 import com.mhp.coding.challenges.dependency.inquiry.Inquiry;
 import com.mhp.coding.challenges.dependency.inquiry.InquiryMapper;
 import com.mhp.coding.challenges.dependency.notifications.PushNotificationHandler;
@@ -23,6 +24,13 @@ public class PushNotificationService implements PushNotificationSender {
     @Override
     public void sendNotification(Map<String, String> inquiryAsMap) {
         Inquiry inquiry = inquiryMapper.map(inquiryAsMap);
+
+        pushNotificationHandler.sendNotification(inquiry);
+    }
+
+    @Override
+    public void sendNotification(InquiryDto inquiryDto) {
+        Inquiry inquiry = inquiryMapper.mapFroDto(inquiryDto);
 
         pushNotificationHandler.sendNotification(inquiry);
     }

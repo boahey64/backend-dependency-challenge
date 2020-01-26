@@ -1,5 +1,6 @@
 package com.mhp.coding.challenges.dependency.inquiry;
 
+import com.mhp.coding.challenges.dependency.dto.InquiryDto;
 import com.mhp.coding.challenges.dependency.service.EmailSender;
 import com.mhp.coding.challenges.dependency.service.PushNotificationSender;
 import org.slf4j.Logger;
@@ -28,6 +29,7 @@ public class InquiryService {
         LOG.info("User sent inquiry: {}", inquiry);
 
         Map<String, String> map = inquiryMapper.map(inquiry);
+        InquiryDto inquiryDto = inquiryMapper.mapToDto(inquiry);
 
         emailSender.sendEmail(map);
 

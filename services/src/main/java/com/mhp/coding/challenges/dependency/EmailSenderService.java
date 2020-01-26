@@ -1,5 +1,6 @@
 package com.mhp.coding.challenges.dependency;
 
+import com.mhp.coding.challenges.dependency.dto.InquiryDto;
 import com.mhp.coding.challenges.dependency.inquiry.Inquiry;
 import com.mhp.coding.challenges.dependency.inquiry.InquiryMapper;
 import com.mhp.coding.challenges.dependency.notifications.EmailHandler;
@@ -25,5 +26,13 @@ public class EmailSenderService implements EmailSender {
         Inquiry inquiry = inquiryMapper.map(inquiryAsMap);
 
         emailHandler.sendEmail(inquiry);
+    }
+
+    @Override
+    public void sendEmail(InquiryDto inquiryDto) {
+        Inquiry inquiry = inquiryMapper.mapFroDto(inquiryDto);
+
+        emailHandler.sendEmail(inquiry);
+
     }
 }

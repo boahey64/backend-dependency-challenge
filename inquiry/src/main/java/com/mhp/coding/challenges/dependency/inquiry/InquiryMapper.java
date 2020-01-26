@@ -1,5 +1,6 @@
 package com.mhp.coding.challenges.dependency.inquiry;
 
+import com.mhp.coding.challenges.dependency.dto.InquiryDto;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -24,6 +25,24 @@ public class InquiryMapper {
         inquiry.setUsername(inquiryAsMap.get("username"));
         inquiry.setRecipient(inquiryAsMap.get("recipient"));
         inquiry.setText(inquiryAsMap.get("text"));
+
+        return inquiry;
+    }
+
+
+    public InquiryDto mapToDto(Inquiry inquiry) {
+
+        return new InquiryDto(
+                inquiry.getUsername(),
+                inquiry.getRecipient(),
+                inquiry.getText());
+    }
+
+    public Inquiry mapFroDto(InquiryDto inquiryDto) {
+        Inquiry inquiry = new Inquiry();
+        inquiry.setUsername(inquiryDto.getUsername());
+        inquiry.setRecipient(inquiryDto.getRecipient());
+        inquiry.setText(inquiryDto.getText());
 
         return inquiry;
     }
